@@ -1,0 +1,111 @@
+body {
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1[type='classHeader'] {
+	float:left;
+}
+
+h2 {
+	margin:0 0 .5em 0;
+}
+	h2[type='commandSelect'] {
+		margin: 15px 0px;
+	}
+
+a {
+  color: #00B7FF;
+}
+
+img[type='portrait'] {
+	float: left;
+	padding-right: 50px;
+	cursor: pointer;
+}
+
+img[type='imgButton'] {
+	cursor: pointer;
+}
+
+#classHeader {
+	float: left;
+}
+
+#wrapper {
+	padding-left:312px;
+	position:relative;
+}
+
+#characterList {
+	padding-top: 100px;
+}
+
+#commandList {
+	margin:0 0 30px 0;
+}
+	#commandList table {
+		margin: 0 0 30px 0;
+		border-collapse:separate;
+		border-spacing:1px;
+		background:#CCC;
+	}
+		#commandList table th {
+			background:#EEE;
+			font-weight:600;
+			padding:10px 10px;
+			text-align:center;
+		}
+		#commandList table tbody {
+			padding:0; margin:0;
+			border-collapse:collapse;
+			border-spacing:0px;
+		}
+			#commandList table td {
+				background:#FFF;
+				padding:5px 10px;
+				text-align:center;
+				vertical-align: top;
+			}
+				#commandList table td[type='basicCell'] {
+					max-width: 70px;
+				}
+				#commandList table td[type='activeCell'] {
+					max-width: 400px;
+				}
+				#commandList table td[type='specialCell'] {
+					max-width: 400px;
+				}
+
+#comboInfo {
+	display: inline-block;
+	margin: 0 0 0 0px;
+	width: 250px;
+}
+	#comboInfo p {
+		padding:15px;
+		border:1px solid #CCC;
+		background: #EEE;
+	}
+
+#comboList {
+	padding-left: 150px;
+	display: inline-block;
+}
+
+	#comboList p {
+		display: inline-block;
+		white-space: nowrap;
+		padding: 4px;
+		border: 1px solid #CCC;
+		background: #EEE;
+		width: 800px;
+		height: 31px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+fieldset {
+	border:0;
+	padding:0; margin:0;
+}

@@ -1,0 +1,30 @@
+extends layout_BM
+
+block content
+	h1(type='classHeader')= title
+	#comboList
+		p
+			| <span id='comboImg'></span>
+	img(id='BMLarge', type='portrait', src='/images/BladeMaster.png')
+
+	// INLINE ELEMENTS
+	h2(type='commandSelect') Command Select
+	#commandList
+		table
+			thead
+				th Basic
+				th Active
+				th Special Active
+			tbody
+	#comboInfo
+		h2 Combo Statistics
+		p
+			strong Knockdown Value:
+			|	<span id='comboKD'></span>
+			br
+			strong Damage:
+			|	<span id='comboDMG'></span>
+			br
+			strong MP Gain:
+			|	<span id='comboMP'></span>
+	// /INLINE ELEMENTS
