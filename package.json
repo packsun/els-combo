@@ -15,5 +15,6 @@
       "jade": "*",
       "mongodb": "*",
       "mongoskin": "*"
-  }
+  },
+  "engine": "node 0.10.35"
 }
