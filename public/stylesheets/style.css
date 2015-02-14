@@ -33,7 +33,7 @@ img[type='imgButton'] {
 }
 
 #wrapper {
-	min-width: 1200px;
+	min-width: 1500px;
 	position:relative;
 }
 
@@ -63,23 +63,23 @@ img[type='imgButton'] {
 		}
 			#commandList table td {
 				background:#FFF;
-				padding:5px 10px;
+				padding:5px 0px;
 				text-align:center;
-				vertical-align: top;
 			}
 				#commandList table td[type='basicCell'] {
-					max-width: 70px;
+					max-width: 80px;
 				}
 				#commandList table td[type='activeCell'] {
-					max-width: 400px;
+					max-width: 172px;
 				}
 				#commandList table td[type='specialCell'] {
-					max-width: 400px;
+					max-width: 280px;
 				}
 
 #comboInfo {
 	display: inline-block;
-	margin: 0 0 0 0px;
+	position: relative;
+	top: 5px;
 	width: 250px;
 }
 	#comboInfo p {
@@ -89,9 +89,9 @@ img[type='imgButton'] {
 	}
 
 #comboList {
-	padding-left: 150px;
-	white-space: nowrap;
+	padding: 0px 377px;
 	display: inline-block;
+	float: left;
 }
 
 	#comboList p {
@@ -100,7 +100,7 @@ img[type='imgButton'] {
 		padding: 4px;
 		border: 1px solid #CCC;
 		background: #EEE;
-		width: 800px;
+		width: 523px;
 		height: 31px;
 		overflow-x: scroll;
 		overflow-y: hidden;

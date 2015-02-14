@@ -6,17 +6,9 @@ block content
 		#comboList
 			p
 				| <span id='comboImg'></span>
-		img(id='BMLarge', type='portrait', src='/images/BladeMaster.png')
+		img(id='BMLarge', type='portrait', src='/images/BM/BladeMaster.png')
 
 		// INLINE ELEMENTS
-		h2(type='commandSelect') Command Select
-		#commandList
-			table
-				thead
-					th Basic
-					th Active
-					th Special Active
-				tbody
 		#comboInfo
 			h2 Combo Statistics
 			p
@@ -28,4 +20,15 @@ block content
 				br
 				strong MP Gain:
 				|	<span id='comboMP'></span>
+				br
+				strong Opponent MP:
+				|	<span id='comboMP2'></span>
+		h2(type='commandSelect') Command Select
+		#commandList
+			table
+				thead
+					th Basic
+					th Active
+					th Special Active
+				tbody
 		// /INLINE ELEMENTS
