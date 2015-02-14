@@ -33,7 +33,7 @@ img[type='imgButton'] {
 }
 
 #wrapper {
-	padding-left:312px;
+	min-width: 1200px;
 	position:relative;
 }
 
@@ -90,6 +90,7 @@ img[type='imgButton'] {
 
 #comboList {
 	padding-left: 150px;
+	white-space: nowrap;
 	display: inline-block;
 }
 
