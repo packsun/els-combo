@@ -14,6 +14,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+os = process.platform;
+app.set('os', os);
+
 // store sessions
 app.use(cookieParser());
 app.use(session({

@@ -1,26 +1,19 @@
 body {
-  padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-h1[type='classHeader'] {
-	float:left;
+  padding: 40px;
+  margin: 0 auto;
+  font: 14px "News Gothic MT", Helvetica, Arial, sans-serif;
 }
 
 h2 {
 	margin:0 0 .5em 0;
 }
-	h2[type='commandSelect'] {
-		margin: 15px 0px;
-	}
 
 a {
   color: #00B7FF;
 }
 
 img[type='portrait'] {
-	float: left;
-	padding-right: 50px;
+	margin-right: 50px;
 	cursor: pointer;
 }
 
@@ -29,23 +22,27 @@ img[type='imgButton'] {
 }
 
 #classHeader {
-	float: left;
 }
 
 #wrapper {
 	min-width: 1500px;
-	position:relative;
+}
+
+#main {
+	display: inline-block;
+	position: absolute;
+	top: 100px;
 }
 
 #characterList {
-	padding-top: 100px;
+	margin-top: 100px;
 }
 
 #commandList {
-	margin:0 0 30px 0;
+	margin-top: 30px;
 }
 	#commandList table {
-		margin: 0 0 30px 0;
+		margin-top: 15px;
 		border-collapse:separate;
 		border-spacing:1px;
 		background:#CCC;
@@ -77,9 +74,7 @@ img[type='imgButton'] {
 				}
 
 #comboInfo {
-	display: inline-block;
-	position: relative;
-	top: 5px;
+	margin-top: 30px;
 	width: 250px;
 }
 	#comboInfo p {
@@ -89,19 +84,15 @@ img[type='imgButton'] {
 	}
 
 #comboList {
-	padding: 0px 377px;
-	display: inline-block;
-	float: left;
 }
 
 	#comboList p {
-		display: inline-block;
 		white-space: nowrap;
 		padding: 4px;
 		border: 1px solid #CCC;
 		background: #EEE;
-		width: 523px;
-		height: 31px;
+		width: 525px;
+		height: 46px;
 		overflow-x: scroll;
 		overflow-y: hidden;
 	}
