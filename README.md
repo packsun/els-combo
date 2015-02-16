@@ -1,7 +1,7 @@
 # els-combo
 Combo simulator for the multiplayer brawler Elsword Online.
 
-Still very much WIP! Like seriously, I'm not even 5% done.
+Blade Master completed! Will add exporting/saving functionality before proceeding to other classes.
 
 Basic usage:
 Click any action from the Command Select to add it to your current combo.
