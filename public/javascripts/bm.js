@@ -285,7 +285,7 @@ bladeMaster = {
 	'ZZZUZ': {'KD': 15, 'MP': 7, 'DMG': 150, 'MP2': 6,
 		'img': imgButton + 'ZZZUZ src=/images/up.png>',
 		'img2': '<img src=/images/up.png>' + '<img src=/images/Z.png>',
-		'next': {'basic': ['Z0', 'DX', 'right20', 'up0', 'right0', 'left0', 'down0', 'left20'],
+		'next': {'basic': ['Z0', 'JX2', 'right20', 'up0', 'right0', 'left0', 'down0', 'left20'],
 		'active': noActives, 'special': noSpecials}
 	},
 	'ZZZX': {'KD': 0, 'MP': 2, 'DMG': 20, 'MP2': 12,
@@ -375,7 +375,7 @@ bladeMaster = {
 	'XZZZ': {'KD': 0, 'MP': 7, 'DMG': 280, 'MP2': 6,
 		'img': imgButton + 'XZZZ src=/images/Z.png>',
 		'img2': '<img src=/images/Z.png>',
-		'next': {'basic': ['Z0', 'DX', 'right2', 'up0', 'right0', 'left0', 'down0', 'left20'],
+		'next': {'basic': ['Z0', 'JX2', 'right2', 'up0', 'right0', 'left0', 'down0', 'left20'],
 		'active': noActives, 'special': noSpecials}
 	},
 	'XX': {'KD': 15, 'MP': 7, 'DMG': 200, 'MP2': 6,
@@ -431,6 +431,12 @@ bladeMaster = {
 	'JX': {'KD': -20, 'MP': 7, 'DMG': 200, 'MP2': 6,
 		'img': imgButton + 'JX src=/images/X.png>',
 		'img2': '<img src=/images/right.png><img src=/images/down.png> <img src=/images/X.png>',
+		'next': {'basic': ['Z', 'X', 'right20', 'up0', 'right0', 'left0', 'down0', 'left20'],
+		'active': allActives, 'special': allSpecials}
+	},
+	'JX2': {'KD': -20, 'MP': 7, 'DMG': 200, 'MP2': 6,
+		'img': imgButton + 'JX2 src=/images/X.png>',
+		'img2': ' <img src=/images/down.png> <img src=/images/X.png>',
 		'next': {'basic': ['Z', 'X', 'right20', 'up0', 'right0', 'left0', 'down0', 'left20'],
 		'active': allActives, 'special': allSpecials}
 	},
