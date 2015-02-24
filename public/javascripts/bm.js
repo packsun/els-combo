@@ -62,11 +62,11 @@ function addAction(event) {
 	// KD limit restriction
 	if (combo['KD'] >= 100) {
 		$('#comboKD').css({'color': 'red'});
-		if (combo['KD'] - thisAction['KD'] >= 100 && thisAction['DMG'] != 0) {
-			populateNext(bladeMaster['ZZZZ']);
-			alert('Exceeded KD limit. This action will knock down');
-			return;
-		}
+	}
+	if (combo['KD'] - thisAction['KD'] >= 100 && thisAction['DMG'] != 0) {
+		populateNext(bladeMaster['ZZZZ']);
+		alert('Exceeded KD limit. This action will knock down');
+		return;
 	}
 
 	populateNext(thisAction);
@@ -268,7 +268,7 @@ bladeMaster = {
 	'ZZright2': {'KD': 0, 'MP': 0, 'DMG': 0, 'MP2': 0,
 		'img': imgButton + 'ZZright2 src=/images/right2.png>',
 		'img2': '<img src=/images/X0.png> <img src=/images/right2.png>',
-		'next': {'basic': ['DZ', 'X0', 'right20', 'DJ', 'right0', 'left', 'down0', 'left20'],
+		'next': {'basic': ['DZ', 'DX', 'right20', 'DJ', 'right0', 'left', 'down0', 'left20'],
 		'active': allActives, 'special': allSpecials}
 	},
 	'ZZZ': {'KD': 15, 'MP': 7, 'DMG': 150, 'MP2': 6,
@@ -443,7 +443,8 @@ bladeMaster = {
 	'DJZ': {'KD': 20, 'MP': 7, 'DMG': 100, 'MP2': 6,
 		'img': imgButton + 'DJZ src=/images/Z.png>',
 		'img2': ' <img src=/images/Z.png>',
-		'next': {'basic': allBasic, 'active': allActives, 'special': allSpecials}
+		'next': {'basic': ['DJZZ', 'X0', 'right2', 'up0', 'right', 'left0', 'down0', 'left20'],
+		'active': allActives, 'special': allSpecials}
 	},
 	'DJZZ': {'KD': -25, 'MP': 7, 'DMG': 100, 'MP2': 6,
 		'img': imgButton + 'DJZZ src=/images/Z.png>',
