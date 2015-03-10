@@ -3,6 +3,7 @@ combo = {'comboList': [], 'comboImg': '', 'KD': 0, 'DMG': 0, 'MP': 0, 'MP2': 0};
 $(document).ready(function() {
 
 	populateNext(bladeMaster['idle']);
+	loadCombo();
 	
 	$('#comboKD').text(combo['KD']);
 	$('#comboMP').text(combo['MP']);
@@ -11,6 +12,8 @@ $(document).ready(function() {
 
 	$('#commandList table tbody').on('click', 'td img.action', addAction);
 	$('#BMLarge').on('click', removeAction);
+	$('#save').on('click', saveCombo);
+	$('#delete').on('click', deleteCookies);
 
 });
 
@@ -28,10 +31,9 @@ function addAction(event) {
 
 	// Approximate cooldown restriction
 	if ('CD' in thisAction) {
-		var n = combo['comboList'].lastIndexOf(thisAction);
+		var n = combo['comboList'].lastIndexOf(id);
 		if (n != -1) {
 			if (combo['comboList'].length - n < 2*thisAction['CD']) {
-				console.log(combo['comboList'].length - n);
 				alert('This skill is still on cooldown');
 				return;
 			}
@@ -39,7 +41,7 @@ function addAction(event) {
 	}
 
 	// Update global combo object
-	combo['comboList'].push(thisAction);
+	combo['comboList'].push(id);
 	combo['KD'] += thisAction['KD'];
 	combo['MP'] += thisAction['MP'];
 	combo['MP2'] += thisAction['MP2'];
@@ -74,14 +76,16 @@ function addAction(event) {
 
 function removeAction(event) {
 
+	event.preventDefault;
 	// Cannot remove when combo list is empty
 	if (combo['comboImg'] === '') {
 		return
 	}
 
 	event.preventDefault();
-	var lastAction = combo['comboList'].pop();
-
+	var lastID = combo['comboList'].pop();
+	var lastAction = bladeMaster[lastID]
+ 
 	// Revert text color to black
 	if (combo['KD'] >= 100 && combo['KD'] - lastAction.KD < 100) {
 		$('#comboKD').css({'color': 'black'});
@@ -109,12 +113,11 @@ function removeAction(event) {
 	// Special behavior when removing only element
 	if (combo['comboImg'] != '') {
 		var lastIndex = (combo['comboList'].length)-1;
-		var thisAction = combo['comboList'][lastIndex];
+		var thisAction = bladeMaster[combo['comboList'][lastIndex]];
 		populateNext(thisAction);
 	} else {
 		populateNext(bladeMaster['idle']);
 	}
-
 };
 
 function populateNext(action) {
@@ -147,6 +150,70 @@ function populateNext(action) {
     content += '</tr>';
 
     $('#commandList table tbody').html(content);
+};
+
+function createCookie(name,value,days) {
+
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/BM";
+};
+
+function saveCombo(event) {
+
+	event.preventDefault;
+	
+	// Erase cookies if clicked Save with empty combo
+	if (combo['comboImg'] === '') {
+		createCookie('combo', "", -1);
+		createCookie('comboImg', "", -1);
+		createCookie('KD', "", -1);
+		createCookie('DMG', "", -1);
+		createCookie('MP', "", -1);
+		createCookie('MP2', "", -1);
+
+	// Create cookies using global combo object
+	} else {
+		createCookie('combo', combo['comboList'], 30);
+		createCookie('comboImg', combo['comboImg'], 30);
+		createCookie('KD', combo['KD'], 30);
+		createCookie('DMG', combo['DMG'], 30);
+		createCookie('MP', combo['MP'], 30);
+		createCookie('MP2', combo['MP2'], 30);
+	}
+};
+
+function loadCombo() {
+
+	if (!document.cookie) {
+		return;
+	}
+
+	var cookies = document.cookie.split('; ');
+	var comboList = cookies[0].substring(6);
+	var commands = comboList.split(',');
+	combo['comboList'] = commands;
+	populateNext(bladeMaster[combo['comboList'][combo['comboList'].length-1]]);
+
+	var comboImg = cookies[1].substring(9);
+	combo['comboImg'] = comboImg;
+	$('#comboImg').html(combo['comboImg']);
+
+	var kd = cookies[2].substring(3);
+	combo['KD'] = kd - 0;
+
+	var dmg = cookies[3].substring(4);
+	combo['DMG'] = dmg - 0;
+
+	var mp = cookies[4].substring(3);
+	combo['MP'] = mp - 0;
+
+	var mp2 = cookies[5].substring(4);
+	combo['MP2'] = mp2 - 0;
 };
 
 
