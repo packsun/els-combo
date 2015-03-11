@@ -13,7 +13,6 @@ $(document).ready(function() {
 	$('#commandList table tbody').on('click', 'td img.action', addAction);
 	$('#BMLarge').on('click', removeAction);
 	$('#save').on('click', saveCombo);
-	$('#delete').on('click', deleteCookies);
 
 });
 
@@ -193,27 +192,31 @@ function loadCombo() {
 		return;
 	}
 
-	var cookies = document.cookie.split('; ');
-	var comboList = cookies[0].substring(6);
-	var commands = comboList.split(',');
-	combo['comboList'] = commands;
-	populateNext(bladeMaster[combo['comboList'][combo['comboList'].length-1]]);
-
-	var comboImg = cookies[1].substring(9);
-	combo['comboImg'] = comboImg;
-	$('#comboImg').html(combo['comboImg']);
-
-	var kd = cookies[2].substring(3);
-	combo['KD'] = kd - 0;
-
-	var dmg = cookies[3].substring(4);
-	combo['DMG'] = dmg - 0;
-
-	var mp = cookies[4].substring(3);
-	combo['MP'] = mp - 0;
-
-	var mp2 = cookies[5].substring(4);
-	combo['MP2'] = mp2 - 0;
+	cookies = document.cookie.split('; ');
+	while (cookies.length) {
+		var cookie = cookies.pop();
+		if (cookie.substring(0, 6) === 'combo=') {
+			var comboList = cookie.substring(6).split(',');
+			combo['comboList'] = comboList;
+			populateNext(bladeMaster[combo['comboList'][combo['comboList'].length-1]]);
+		} else if (cookie.substring(0, 9) === 'comboImg=') {
+			var comboImg = cookie.substring(9);
+			combo['comboImg'] = comboImg;
+			$('#comboImg').html(combo['comboImg']);
+		} else if (cookie.substring(0, 3) === 'KD=') {
+			var kd = cookie.substring(3);
+			combo['KD'] = kd - 0;
+		} else if (cookie.substring(0, 4) === 'DMG=') {
+			var dmg = cookie.substring(4);
+			combo['DMG'] = dmg - 0;
+		} else if (cookie.substring(0, 3) === 'MP=') {
+			var mp = cookie.substring(3);
+			combo['MP'] = mp - 0;
+		} else if (cookie.substring(0, 4) === 'MP2=') {
+			var mp2 = cookie.substring(4);
+			combo['MP2'] = mp2 - 0;
+		}
+	}
 };
 
 
@@ -225,6 +228,7 @@ allBasic = ['Z', 'X', 'right2', 'up', 'right', 'left0', 'down0', 'left20'];
 noBasic = ['Z0', 'X0', 'right20', 'up0', 'right0', 'left0', 'down0', 'left20'];
 allActives = ['5L', '5R', '10R', '15L', '25', '40RR-0', '45L', '45R', '60L-0'];
 allActives2 = ['5L', '5R', '10R', '15L', '25', '40RR', '45L', '45R', '60L-0'];
+allActives3 = ['5L', '5R', '10R', '15L', '25', '40RR', '45L', '45R', '60L'];
 noActives = ['5L-0', '5R-0', '10R-0', '15L-0', '25-0', '40RR-0', '45L-0', '45R-0', '60L-0'];
 allSpecials = ['0', '10L', '15R', '20L', '20R', '15', '30L', '30R', '40L', '40R', '35',
 				'50RR', '55L', '55R', '65'];
@@ -270,7 +274,7 @@ bladeMaster = {
 
 	// BASIC ACTIONS
 	'idle': {'KD': 0, 'MP': 0, 'DMG': 0, 'MP2': 0,
-		'next': {'basic': allBasic, 'active': allActives,
+		'next': {'basic': allBasic, 'active': allActives3,
 		'special': allSpecials}
 	},
 	'up': {'KD': 0, 'MP': 0, 'DMG': 0, 'MP2': 0,
