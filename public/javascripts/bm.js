@@ -184,6 +184,7 @@ function saveCombo(event) {
 		createCookie('MP', combo['MP'], 30);
 		createCookie('MP2', combo['MP2'], 30);
 	}
+	alert('Saved!');
 };
 
 function loadCombo() {
@@ -216,6 +217,10 @@ function loadCombo() {
 			var mp2 = cookie.substring(4);
 			combo['MP2'] = mp2 - 0;
 		}
+	}
+	if (combo['KD'] >= 100) {
+		$('#comboKD').css({'color': 'red'});
+		populateNext(bladeMaster['ZZZZ']);
 	}
 };
 
