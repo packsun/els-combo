@@ -14,11 +14,11 @@ block content
 				h2 Combo Statistics
 					button(id="save") Save
 				p
-					strong Knockdown Value:
-					|	<span id='comboKD'></span>
-					br
 					strong Damage:
 					|	<span id='comboDMG'></span>
+					br
+					strong Knockdown Value:
+					|	<span id='comboKD'></span>
 					br
 					strong MP Gain:
 					|	<span id='comboMP'></span>
@@ -26,17 +26,19 @@ block content
 					strong Opponent MP:
 					|	<span id='comboMP2'></span>
 			#skillInfo
-				h2 Skill Information
+				h2 Command Info
 				p
-					|	<b><i><span id='skillName'></span></i></b>
+					strong Name:
+					|	<span id='skillName'></span>
 					br
-					strong Total Damage:
+					strong Damage:
 					|	<span id='skillDMG'></span>
 					br
-					strong Net MP:
-					|	<span id='skillMP'></span>
+					strong Knockdown Value:
+					|	<span id='skillKD'></span>
 					br
-					| Damage includes PvP modifier
+					strong MP Gain:
+					|	<span id='skillMP'></span>
 			#commandList
 				h2 Command Select
 				table
