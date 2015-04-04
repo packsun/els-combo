@@ -84,6 +84,8 @@ img[type='imgButton'] {
 	}
 
 #save {
+	display: inline-block;
+	margin-left: 35px;
 }
 
 #comboList {
