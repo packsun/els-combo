@@ -39,7 +39,7 @@ img[type='imgButton'] {
 }
 
 #commandList {
-	margin-top: 30px;
+	margin-top: 10px;
 }
 	#commandList table {
 		margin-top: 15px;
@@ -83,9 +83,26 @@ img[type='imgButton'] {
 		background: #EEE;
 	}
 
+#skillInfo {
+	position: absolute;
+	right: 0px;
+	top: 100px;
+	width: 280px;
+}
+	#skillInfo p {
+		padding:15px;
+		border:1px solid #CCC;
+		background: #EEE;
+	}
+
+	#skillInfo h2 {
+		text-align: right;
+	}
+
 #save {
 	display: inline-block;
-	margin-left: 35px;
+	position: relative;
+	right: -60px;
 }
 
 #comboList {

@@ -11,6 +11,7 @@ $(document).ready(function() {
 	$('#comboMP2').text(combo['MP2']);
 
 	$('#commandList table tbody').on('click', 'td img.action', addAction);
+	$('#commandList table tbody').on('mouseover', 'td img.action', skillInfo);
 	$('#BMLarge').on('click', removeAction);
 	$('#save').on('click', saveCombo);
 
@@ -150,6 +151,17 @@ function populateNext(action) {
 
     $('#commandList table tbody').html(content);
 };
+
+function skillInfo(event) {
+
+	event.preventDefault();
+	var id = this.id;
+	var thisAction = bladeMaster[id];
+	$('#skillName').text(id);
+	$('#skillDMG').text(thisAction['DMG'] + '%');
+	$('#skillMP').text(thisAction['MP']);
+
+}
 
 function createCookie(name,value,days) {
 
